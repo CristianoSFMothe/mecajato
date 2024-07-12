@@ -1,33 +1,48 @@
 .card-dashboard{
-
   background-color: var(--main-color);
   width: 50%;
   margin-left: 10px;
   margin-top: 40px;
   text-align: center;
   padding: 20px;
-
 }
 
 .text-card{
-
   font-size: 25px;
+}
 
+h3 {
+  margin-bottom: 1rem;
 }
 
 .btn-add-carros{
-
   background-color: var(--contrast-color);
   padding: 5px;
   font-weight: bold;
+  margin-top: 100px;
   cursor: pointer;
-
+  transition: opacity 0.3s ease;
 }
 
 .btn-principal{
   color:white;
   border: none;
-  background-color: var(--dark-color);
-  padding: 5px;
+  background-color: var(--main-color);
+  padding: 15px;
   font-size: 30px;
+  transition: opacity 0.3s ease;
+}
+
+#att_cliente{
+  display: none;
+}
+
+.add-cliente, .edit-cliente {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.add-cliente:hover, .edit-cliente:hover,  .btn-add-carros:hover, .btn-principal:hover{
+  opacity: 0.8; 
 }
