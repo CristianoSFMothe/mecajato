@@ -48,6 +48,22 @@ python3 manage.py startapp cliente
 python3 manage.py runserver
 ```
  
+### Migração
+
+1. Coletando as informações geradas do banco de dados
+
+```python
+# Linux
+python3 manage.py makemigrations
+```
+
+2. Gerando a migração
+
+```python
+# Linux
+python3 manage.py migrate
+```
+
 * URL Clientes
 
 ```
