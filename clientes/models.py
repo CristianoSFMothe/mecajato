@@ -4,14 +4,14 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
     email = models.EmailField() 
-    cpf = models.CharField(max_length=12) # TODO: tornar o CPF único
+    cpf = models.CharField(max_length=12, unique=True)
 
     def __str__(self) -> str:
         return self.nome
 
 class Carro(models.Model):
     carro = models.CharField(max_length=50)
-    placa = models.CharField(max_length=50) # TODO: tornar a placa único
+    placa = models.CharField(max_length=50, unique=True)
     ano = models.IntegerField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     lavagens = models.IntegerField(default=0)
