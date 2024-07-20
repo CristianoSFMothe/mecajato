@@ -5,6 +5,7 @@
   margin-top: 40px;
   text-align: center;
   padding: 20px;
+  cursor: pointer;
 }
 
 .text-card{
@@ -19,8 +20,7 @@ h3 {
   background-color: var(--contrast-color);
   padding: 5px;
   font-weight: bold;
-  margin-top: 100px;
-  cursor: pointer;
+  margin-top: 100px;  
   transition: opacity 0.3s ease;
 }
 
@@ -39,10 +39,13 @@ h3 {
 
 .add-cliente, .edit-cliente {
   margin-bottom: 10px;
-  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
 .add-cliente:hover, .edit-cliente:hover,  .btn-add-carros:hover, .btn-principal:hover{
   opacity: 0.8; 
+}
+
+#form-att-cliente {
+  display: none
 }
