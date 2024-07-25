@@ -1,4 +1,4 @@
-# mecajado
+# mecajato
 
 ## Configuração
 
@@ -29,7 +29,7 @@ pip install django==4.1.1
 
 ```python
 # Linux
-django-admin startproject mecajado .
+django-admin startproject mecajato .
 ```
 
 ### Cliente

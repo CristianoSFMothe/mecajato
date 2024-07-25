@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mecajado.urls'
+ROOT_URLCONF = 'mecajato.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mecajado.wsgi.application'
+WSGI_APPLICATION = 'mecajato.wsgi.application'
 
 
 # Database

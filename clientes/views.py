@@ -71,8 +71,13 @@ def att_cliente(request):
     
     cliente = Cliente.objects.filter(id=id_cliente)
     
+    carros = Carro.objects.filter(cliente=cliente[0])
+    
     cliente_json = json.loads(serializers.serialize('json', cliente))[0]['fields']
     
-    print(cliente_json)
+    carros_json = json.loads(serializers.serialize('json', carros))
+    carros_json = [{'fields': carro['fields'], 'id': carro['pk']} for carro in carros_json]
     
-    return JsonResponse(cliente_json)
+    data = { 'cliente': cliente_json, 'carros': carros_json }
+    
+    return JsonResponse(data)
