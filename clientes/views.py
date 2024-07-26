@@ -4,6 +4,9 @@ from .models import Cliente, Carro
 import re
 from django.core import serializers
 import json
+from django.views.decorators.csrf import csrf_exempt
+from django.urls import reverse
+from django.shortcuts import redirect
 
 
 def clientes(request):
@@ -66,6 +69,7 @@ def clientes(request):
 
         return HttpResponse("Teste")
     
+
 def att_cliente(request):
     id_cliente = request.POST.get("id_cliente")
     
@@ -81,3 +85,38 @@ def att_cliente(request):
     data = { 'cliente': cliente_json, 'carros': carros_json }
     
     return JsonResponse(data)
+
+
+
+@csrf_exempt
+def update_carros(request, id):
+    nome_carro = request.POST.get('carro')
+    placa = request.POST.get('palca')
+    ano = request.POST.get('ano')
+    
+    carro = Carro.objects.get(id=id)
+    
+    list_carros = Carro.objects.filter(placa=placa).exclude(id=id)
+    
+    if list_carros.exists():
+        return HttpResponse('Placa já existente')
+    
+    carro.carro = nome_carro
+    carro.carro = placa
+    carro.carro = ano
+    
+    carro.save()
+    
+    return HttpResponse("Dados altarados com sucesso")
+
+
+def excluir_carro(request, id):
+    try:
+        carro = Carro.objects.get(id=id)
+        carro.delete()
+        return redirect(reverse('clientes')+f'?aba=att_cliente&id_cliente={id}')
+    except:
+        #TODO: Exibir mensagem
+        return redirect(reverse('clientes')+f'?aba=att_cliente&id_cliente={id}')
+    
+    

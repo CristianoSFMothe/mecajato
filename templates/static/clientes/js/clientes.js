@@ -60,36 +60,37 @@ function dados_cliente() {
       div_carros = document.getElementById("carros");
 
       for (i = 0; i < data["carros"].length; i++) {
+        console.log(data["carros"][i]);
         div_carros.innerHTML +=
           "<form action='/clientes/update_carro/" +
           data["carros"][i]["id"] +
           "' method='POST'>\
-          <div class='row'>\
-              <div class='col-md-4'>\
-                  <input class='form-control' name='carro' type='text' value='" +
+            <div class='row'>\
+                    <div class='col-md'>\
+                        <input class='form-control' name='carro' type='text' value='" +
           data["carros"][i]["fields"]["carro"] +
           "'>\
-              </div>\
-              <div class='col-md-4'>\
-                  <input class='form-control' name='placa' type='text' value='" +
+                    </div>\
+                    <div class='col-md'>\
+                        <input class='form-control' name='placa' type='text' value='" +
           data["carros"][i]["fields"]["placa"] +
           "'>\
-              </div>\
-              <div class='col-md-4'>\
-                  <input class='form-control' type='text' name='ano' value='" +
+                    </div>\
+                    <div class='col-md'>\
+                        <input class='form-control' type='text' name='ano' value='" +
           data["carros"][i]["fields"]["ano"] +
           "' >\
-              </div>\
-              <div class='col-md-6 mt-3'>\
-                  <input class='btn btn-lg btn-success' type='submit'>\
-              </div>\
-              <div class='col-md-6 mt-3'>\
-                  <a href='/clientes/excluir_carro/" +
+                    </div>\
+                    <div class='col-md'>\
+                        <button class='btn btn-md btn-success btn-salvar' type='submit'>ENVIAR</button>\
+                    </div>\
+                </form>\
+                <div class='col-md'>\
+                    <a href='/clientes/excluir_carro/" +
           data["carros"][i]["id"] +
-          "' class='btn btn-lg btn-danger'>EXCLUIR</a>\
-              </div>\
-          </div>\
-          </form><br>";
+          "' class='btn btn-md btn-danger'>EXCLUIR</a>\
+                </div>\
+            </div><br>";
       }
     });
 }
